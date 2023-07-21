@@ -43,7 +43,6 @@ top:"0px",
 left:"0px",
 fontstye:"bold"}
 
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
 export default function Nav() {
     const [toggled,setToggled] = useState(false)
