@@ -62,7 +62,7 @@ export default function Nav() {
                 <img src={logo} style={{height:80, width:80}} alt="HT"/>
             </div> */}
             
-            <h1 className=" text-x-lg font-bold " style={font}>Haneef Taher</h1>
+            <h1 className=" text-x-lg font-bold " >Haneef Taher</h1>
             
             {/* change font to jetbrains-mono */}
             {
