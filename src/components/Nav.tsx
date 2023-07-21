@@ -69,7 +69,6 @@ export default function Nav() {
             {
             matches &&(
             <div className="flex gap-12" style={links}>
-                <a href = "/"> <img src={home} /> </a>
                 < a href = "https://github.com/HaneefT" target="_blank" > <img src={git} /> </a>
                 < a href = "https://haneeft.github.io/resume/resume.pdf" target="_blank"><img src={res} /> </a>
                 < a href = "https://www.linkedin.com/in/syed-haneef-623b7a218/" target="_blank">  <img src={lin} />  </a>
@@ -97,7 +96,6 @@ export default function Nav() {
                 initial="hidden"
                 animate="visible"
                 className="flex flex-col gap-24 text-lg">
-                <motion.a variants={itemMotion} href = "/">  <img src={home} /> </motion.a>
                 < motion.a variants={itemMotion} href = "https://github.com/HaneefT" target="_blank" >  <img src={git} /> </motion.a>
                 < motion.a variants={itemMotion} href = "https://haneeft.github.io/resume/resume.pdf" target="_blank">  <img src={res} /> </motion.a>
                 < motion.a variants={itemMotion} href = "https://www.linkedin.com/in/syed-haneef-623b7a218/" target="_blank" > <img src={lin} /> </motion.a>
