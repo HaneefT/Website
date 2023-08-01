@@ -1,0 +1,9 @@
+.typing-effect {
+    overflow: hidden;
+    white-space: pre;
+  }
+  .cursor {
+    font-size: 24px;
+    color: black;
+  }
+  

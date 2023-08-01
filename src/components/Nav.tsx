@@ -1,12 +1,10 @@
-// import logo from "/HT-1.png"
 import {motion} from "framer-motion"  
 import { useState } from "react" 
 import { useMediaQuery } from "../Util/usemedia"
-// import home from "/home .png"
+import Text from "../components/Title"
+
 import "@fontsource/jetbrains-mono"
-import lin from "/linkedin-sign.png"
-import git from "/github.png"
-import res from "/resume.png"
+
 // import "../styles/nav.css"
 const navMotion = {
     visible:{
@@ -22,16 +20,6 @@ const itemMotion = {
     visible: {opacity:1, x:0},
     hidden: {opacity:0, x:-100}}
 
-
-const font = {fontFamily:"JetBrains Mono", 
-                fontSize:"x-large",
-                letterSpacing:"0.1em",
-                color:"#282828",
-                right:"0px",
-                top:"0px",
-                bottom:"0px",
-                left:"1900px",
-                position:"flex"}
 
 const links = {fontFamily:"JetBrains Mono", 
 fontSize:"large",
@@ -62,7 +50,7 @@ export default function Nav() {
                 <img src={logo} style={{height:80, width:80}} alt="HT"/>
             </div> */}
             {/* Animate the below text such that it is animated every time the website is opened */}
-            <h1 className=" text-x-lg font-bold " style= {font}>Haneef Taher</h1>
+            <Text/>
             {/* <h1 className="ml11">
             <span className="text-wrapper">
                 <span className="line line1"></span>
