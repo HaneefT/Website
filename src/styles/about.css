@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,,800,900);
-@media (max-width: 767px){
+
   .hidden {
     opacity:0;
   }
@@ -25,10 +25,4 @@
   position:relative;
   top:-0.14em;
   left:10px;
-}}
-
-@media (min-width: 768px) {
-  .console-container {
-    display: none; /* Hide the div on devices with larger screens */
-  }
 }
