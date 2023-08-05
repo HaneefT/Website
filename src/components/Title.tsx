@@ -1,15 +1,7 @@
 import "../styles/TextWithEffect.css"
 import { useState, useEffect } from 'react';
 
-const font = {fontFamily:"JetBrains Mono", 
-                fontSize:"x-large",
-                letterSpacing:"0.1em",
-                color:"#282828",
-                // right:"0px",
-                // top:"0px",
-                // bottom:"0px",
-                // left:"1900px",
-                position:"flex"}
+const font = {fontFamily:'JetBrains Mono', fontSize:'x-large',letterSpacing:'0.1em',color:'white'}
 
                 const TextWithEffect = () => {
                     const text = "Haneef Taher";
@@ -38,14 +30,11 @@ const font = {fontFamily:"JetBrains Mono",
                       }
                     }, [currentIndex, text.length]);
 
-return (
+return ( 
     <h1 className="typing-effect" style = {font}>{typedText}  
-    {showCursor && <span className="cursor">|</span>}
+    {showCursor && <span className= "cursor-style">|</span>}
     </h1>
 );
 };
-  export default function Text(){
-        return(
-            <TextWithEffect/>
-        )
-  };
+
+export default TextWithEffect;

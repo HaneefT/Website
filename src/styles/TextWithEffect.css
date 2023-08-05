@@ -2,8 +2,7 @@
     overflow: hidden;
     white-space: pre;
   }
-  .cursor {
-    font-size: 24px;
-    color: black;
+.cursor-style {
+  font-size: 24px;
+  color: white;
   }
-  

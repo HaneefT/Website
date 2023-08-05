@@ -1,0 +1,34 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,,800,900);
+@media (max-width: 767px){
+  .hidden {
+    opacity:0;
+  }
+.console-container {
+  display: block;
+  font-size: 15vw;
+    letter-spacing: -.01em;
+    line-height: 100%;
+    margin: 0;
+    font-family:JetBrains Mono, monospace ;
+    font-weight: 900;
+  align-items: flex-start;
+  position:flex;
+  color:black;
+  /* top: -400px;
+  bottom:0;
+  left:80px;
+  right:0; */
+  margin:30px;
+}
+.console-underscore {
+   display:inline-block;
+  position:relative;
+  top:-0.14em;
+  left:10px;
+}}
+
+@media (min-width: 768px) {
+  .console-container {
+    display: none; /* Hide the div on devices with larger screens */
+  }
+}
