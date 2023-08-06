@@ -1,13 +1,14 @@
 ---
 import MainLayout from '../layouts/main-layout.astro';
 import '../styles/about.css';
+import fav from '../fav.png';
 ---
 
 <MainLayout title="Haneef Taher">
   <head>
   </head>
   <body>
-    <script src="./src/components/About.mjs" type="module"></script>
+    <script src="../About.mjs" type="module"></script>
     <div class='console-container mobile-visible'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
     <style>
       /* This will hide the div on devices with screen width greater than or equal to 768px (e.g., tablets, desktops) */
