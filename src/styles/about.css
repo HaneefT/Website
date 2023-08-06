@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,,800,900);
+/* @import url(https://fonts.googleapis.com/css?family=Raleway:400,,800,900); */
 
   .hidden {
     opacity:0;
@@ -14,10 +14,6 @@
   align-items: flex-start;
   position:flex;
   color:black;
-  /* top: -400px;
-  bottom:0;
-  left:80px;
-  right:0; */
   margin:30px;
 }
 .console-underscore {

@@ -1,26 +1,24 @@
 ---
 import MainLayout from '../layouts/main-layout.astro';
 import '../styles/about.css';
-
 ---
 
-  <MainLayout title="Haneef Taher">
-    <head>
-      <script src="src/components/About.js" type="module"></script>
-    </head>
-    <body>
-      <div class='console-container mobile-visible'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
-      <style>
-        /* This will hide the div on devices with screen width greater than or equal to 768px (e.g., tablets, desktops) */
-        @media (min-width: 768px) {
-          .mobile-visible {
-            display: none;
-          }
+<MainLayout title="Haneef Taher">
+  <head>
+  </head>
+  <body>
+    <script src="./src/components/About.js" type="module"></script>
+    <div class='console-container mobile-visible'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
+    <style>
+      /* This will hide the div on devices with screen width greater than or equal to 768px (e.g., tablets, desktops) */
+      @media (min-width: 768px) {
+        .mobile-visible {
+          display: none;
         }
-      </style>
-  
-  </body> 
-  </MainLayout>
+      }
+    </style>
+</body> 
+</MainLayout>
 
 
 
