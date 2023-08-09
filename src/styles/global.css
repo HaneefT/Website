@@ -16,7 +16,9 @@
   
   body {
 	margin: 0;
-	font-family: Arial, sans-serif;
+	scroll-snap-type: y mandatory; /* Enable snap scrolling along the y-axis */
+    overflow-y: scroll; /* Allow vertical scrolling */
+	overflow-x: hidden;
   }
   
   

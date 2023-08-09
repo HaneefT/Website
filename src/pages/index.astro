@@ -1,97 +1,52 @@
 ---
 import MainLayout from '../layouts/main-layout.astro';
-import '../styles/about.css';
+import '../styles/about2.0.css';
+import AboutMe from '../Sections/About_me.astro';
 ---
 
 <MainLayout title="Haneef Taher">
   <head>
   </head>
   <body>
-    <script>
-    function consoleText(words, id, colors) {
-  // The screen width threshold below which the animation will be shown
-  const screenWidthThreshold = 768;
 
-  // Check if the screen width is below the threshold
-  const isSmallScreen = window.innerWidth < screenWidthThreshold;
+  <!-- <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="text-center">About Me</h1>
+        </div>
+      </div>
+    </div> -->
+    <div class="section section1">
+      <AboutMe />
+    </div>
 
-  if (!isSmallScreen) {
-    // If the screen is not small, display nothing (an empty string)
-    const target = document.getElementById(id);
-    target.innerHTML = '';
-    return;
-  }
-
-  // If the screen is small, proceed with the animation
-  if (colors === undefined) colors = ['#fff'];
-  var visible = true;
-  var con = document.getElementById('console');
-  var letterCount = 1;
-  var x = 1;
-  var waiting = false;
-  var stringcounnt = 0;
-  var target = document.getElementById(id)
-  target.setAttribute('style', 'color:' + colors[0])
-  window.setInterval(function () {
-    if (stringcounnt === 2) {
-      document.getElementById('text').innerHTML = 'About Me.';
-      // Hide the cursor and stop the function
-      document.getElementById('console').style.display = 'none';
-      return;
-    }
-    if (letterCount === 0 && waiting === false) {
-      waiting = true;
-      target.innerHTML = words[0].substring(0, letterCount)
-      window.setTimeout(function () {
-        var usedColor = colors.shift();
-        colors.push(usedColor);
-        var usedWord = words.shift();
-        words.push(usedWord);
-        x = 1;
-        target.setAttribute('style', 'color:' + colors[0])
-        letterCount += x;
-        waiting = false;
-      }, 1000)
-    } else if (letterCount === words[0].length + 1 && waiting === false) {
-      stringcounnt++;
-      waiting = true;
-      window.setTimeout(function () {
-        x = -1;
-        letterCount += x;
-        waiting = false;
-      }, 1000)
-    } else if (waiting === false) {
-      target.innerHTML = words[0].substring(0, letterCount)
-      letterCount += x;
-    }
-  }, 120)
-  window.setInterval(function () {
-    if (visible === true) {
-      con.className = 'console-underscore hidden'
-      visible = false;
-
-    } else {
-      con.className = 'console-underscore'
-
-      visible = true;
-    }
-  }, 400)
-}
-
-// Call the consoleText function with the appropriate parameters
-consoleText(['Hello.', 'About Me.'], 'text', ['black', 'black']);
-</script>
-    <div class='console-container mobile-visible'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
-    <style>
-      /* This will hide the div on devices with screen width greater than or equal to 768px (e.g., tablets, desktops) */
+      <div class = "section section2">
+        </div>
+      
+      
+    <!-- <div class='console-container mobile-visible'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div> -->
+    <!-- <style>
       @media (min-width: 768px) {
         .mobile-visible {
           display: none;
         }
       }
-    </style>
+    </style> -->
 </body> 
 </MainLayout>
+
+<style>
+  .section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    /* align-items: center;
+    justify-content: center;
+    font-size: 24px; */
+    scroll-snap-align: start; /* Snap each section to the top of the viewport */
+}
+</style>
 
 
 
