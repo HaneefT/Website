@@ -1,7 +1,7 @@
 import "../styles/TextWithEffect.css"
 import { useState, useEffect } from 'react';
 
-const font = {fontFamily:'JetBrains Mono', fontSize:'x-large',letterSpacing:'0.1em',color:'white'}
+const font = {fontFamily:'JetBrains Mono', fontSize:'1.75rem',fontWeight:'600',letterSpacing:'0.1em',color:'white'}
 
                 const TextWithEffect = () => {
                     const text = "Haneef Taher";

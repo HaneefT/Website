@@ -1,5 +1,6 @@
 ---
 import '../styles/about2.0.css';
+
 ---
 
     <div class="content">
@@ -11,6 +12,120 @@ import '../styles/about2.0.css';
           </ul>
         </div>
       </div>
+
+      
+
+
+
+      <div class="terminal-window">
+        <header>
+          <style>
+            .run-button {
+              background-color: transparent;
+              border: none;
+              cursor: pointer;
+              padding: 0;
+            }
+            
+            .run-button svg {
+              width: 16px;
+              height: 16px;
+              fill: white;
+              transition: transform 0.2s ease-in-out;
+            }
+            
+            .run-button:hover svg {
+              transform: scale(1.2);
+            }
+          </style>
+          <button id="runButton" class="run-button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g fill="white"><path d="M2.78 2L2 2.41v12l.78.42l9-6V8l-9-6zM3 13.48V3.35l7.6 5.07L3 13.48z"/><path fill-rule="evenodd" d="m6 14.683l8.78-5.853V8L6 2.147V3.35l7.6 5.07L6 13.48v1.203z" clip-rule="evenodd"/></g></svg>
+          <button>
+        </header>
+        <section class="terminal">
+          <div class="history"></div>
+          <span id="npmCommand">$&nbsp;</span><span class="prompt"></span>
+          <span class="typed-cursor"></span>
+        </section>
+      </div>
+      <!-- data -->
+      <div class="terminal-data mimik-run-output">
+      </div>
+      <!-- data -->
+      <div class="terminal-data mimik-run-output">
+      </div>
+      
+      <script>
+        async function type(text:string, element: HTMLElement, delay:number) {
+          const sleep = (ms:number) => new Promise((resolve) => setTimeout(resolve, ms));
+          for (let char of text) {
+            element.textContent += char;
+            await sleep(delay);
+          }
+        }
+      
+        async function wipe(element: HTMLElement) {
+          const sleep = (ms:number) => new Promise((resolve) => setTimeout(resolve, ms));
+          const text = element.textContent;
+          for (let i = text!.length; i >= 0; i--) {
+            element.textContent = text!.slice(0, i);
+            await sleep(20);
+          }
+        }
+      
+        document.addEventListener('DOMContentLoaded', async function() {
+          const prompt = document.querySelector('.prompt');
+          const npmCommand = document.getElementById('npmCommand');
+          const runButton = document.getElementById('runButton');
+      
+          const data = [
+            {
+              action: 'type',
+              strings: ["npm build dev"],
+              output: '',
+              delay: 30,
+            },
+          ];
+      
+          async function runScripts(data: any[], pos:number) {
+            const script = data[pos];
+            switch (script.action) {
+              case 'type':
+                await type(script.strings[0], npmCommand as HTMLElement, script.delay);
+                break;
+            }
+            pos++;
+            if (pos < data.length) {
+              setTimeout(() => runScripts(data, pos), script.delay || 1000);
+            }
+          }
+      
+          runButton!.addEventListener('click', async function() {
+            runButton!.style.display = 'none'; // Hide the button after clicking
+            npmCommand!.style.display = 'none'; // Hide the npm command
+            const aboutMeText = [
+              "Hello! I'm Haneef, an international student entering my 3rd year of Computer Science at McMaster University. ",
+              "Proficient in Python, Java, and C++, I am currently learning JavaScript and React to expand my skillset. "
+            ];
+            await typeAboutMe(aboutMeText, prompt as HTMLElement, 30);
+          });
+      
+          async function typeAboutMe(texts:string[], element: HTMLElement, delay:number) {
+            for (let text of texts) {
+              await type(text, element, delay);
+              if (text !== texts[texts.length - 1]) {
+                element.innerHTML += '<br>';
+              }
+            }
+          }
+      
+          runScripts(data, 0); // Start typing the npm build dev command
+        });
+      </script>
+      
+
+      
+      
+        
 
       
       
