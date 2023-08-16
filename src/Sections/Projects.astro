@@ -1,0 +1,210 @@
+---
+import "../styles/projects.css"
+---
+
+<script>
+/*--------------------
+Vars
+--------------------*/
+let progress = 50;
+let active = 0;
+
+/*--------------------
+Get Z
+--------------------*/
+const getZindex = (array: any, index: number) => array.map((_, i) => (index === i) ? array.length : array.length - Math.abs(index - i));
+
+/*--------------------
+Items
+--------------------*/
+const $items = document.querySelectorAll('.carousel-item');
+
+const displayItems = (item, index: number, active: number) => {
+  const zIndex = getZindex([...$items], active)[index];
+  item.style.setProperty('--zIndex', zIndex);
+  item.style.setProperty('--active', ((index - active) / $items.length).toString());
+};
+
+/*--------------------
+Animate
+--------------------*/
+const animate = () => {
+  progress = Math.max(0, Math.min(progress, 100));
+  active = Math.floor(progress / 100 * ($items.length - 1));
+
+  $items.forEach((item, index) => displayItems(item, index, active));
+  const header1 = document.querySelector('.carousel-header') as HTMLElement;
+  const header2 = document.querySelector('.carousel-header2') as HTMLElement;
+  const $header1 = document.querySelector('.carousel-header');
+const $header2 = document.querySelector('.carousel-header2');
+  if (active < 3) {
+    header2.style.opacity = '0.5';
+    header1.style.opacity = '1';
+    header2.style.fontSize = '2.9vw';
+    header1.style.fontSize = '3.9vw';
+
+  } else {
+    header2.style.opacity = '1';
+    header1.style.opacity = '0.5';
+    header1.style.fontSize = '2.9vw';
+    header2.style.fontSize = '3.9vw';
+
+
+  }
+};
+animate();
+
+const $carouselItems = document.querySelectorAll('.carousel-item');
+
+$carouselItems.forEach((item, i) => {
+  // item.addEventListener('mouseenter', () => {
+  //   const bottomText = item.querySelector('.info') as HTMLElement;
+  //   const Title = item.querySelector('.title') as HTMLElement;
+  //   bottomText!.style.opacity = '1';
+  // });
+  
+  // item.addEventListener('mouseleave', () => {
+  //   const bottomText = item.querySelector('.info') as HTMLElement;
+  //   const Title = item.querySelector('.title') as HTMLElement;
+  //   bottomText!.style.opacity = '0';
+  // });
+
+  item.addEventListener('click', () => {
+    // Remove the 'active' class from all items
+    $carouselItems.forEach(item => {
+      item.classList.remove('activei');
+    });
+
+    // Add the 'active' class to the clicked item
+    item.classList.add('activei');
+  });
+});
+
+const $header1 = document.querySelector('.carousel-header');
+const $header2 = document.querySelector('.carousel-header2');
+
+// Handle click on header1 to show item1
+$header1!.addEventListener('click', () => {
+  const item1 = document.querySelector('#item1') as HTMLElement;
+  const itemIndex = Array.from($items).indexOf(item1);
+  progress = (itemIndex / ($items.length - 1)) * 100;
+  animate();
+});
+
+// Handle click on header2 to show item3 (or any desired item)
+$header2!.addEventListener('click', () => {
+  const item3 = document.querySelector('#item3') as HTMLElement;
+  const itemIndex = Array.from($items).indexOf(item3);
+  progress = (itemIndex / ($items.length - 1)) * 100;
+  animate();
+});
+
+
+
+/*--------------------
+Click on Items
+--------------------*/
+$items.forEach((item, i) => {
+  item.addEventListener('click', () => {
+    progress = (i / ($items.length - 1)) * 100;
+    animate();
+  });
+});
+
+
+    </script>
+    
+<!-- <div class="carousel-container"> -->
+    
+<div class="carousel">
+    <div class="carousel-header">
+        Projects
+      </div>
+    <div class="carousel-header2">
+        Essays
+    </div>
+	<div class="carousel-item" id = "item1">
+		<div class="carousel-box">
+			<div class="title">MineCrate</div>
+			<div class="img">
+      <img src="/minecrate.png" alt="MineCrate" width="85%" height="85%" /></div>
+        <div class="info">Made with JS and Rust, Minecrate is a simple market place for Minecraft players to buy and sell goods.<br>
+          ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 
+          ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ </div>
+      </div>
+	</div>
+
+	<div class="carousel-item">
+    <div class="carousel-box">
+      <div class="title">MiniBall</div>
+      <div class="img">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 800" >
+          <defs>
+            <radialGradient id="sssurface-grad-dark" r="75%" cx="20%" cy="20%">
+              <stop offset="0%" stop-color="hsl(351, 100%, 67%)" stop-opacity="0"></stop>
+              <stop offset="100%" stop-color="#c61945" stop-opacity="1"></stop>
+            </radialGradient>
+            <radialGradient id="sssurface-grad-light" r="25%" cx="30%" cy="30%">
+              <stop offset="0%" stop-color="#ff8b9e" stop-opacity="0.75"></stop>
+              <stop offset="100%" stop-color="hsl(351, 100%, 67%)" stop-opacity="0"></stop>
+            </radialGradient>
+            <filter id="sssurface-blur" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feGaussianBlur stdDeviation="30" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur>
+            </filter>
+          </defs>
+          <g>
+            <ellipse rx="150" ry="75" cx="450" cy="500" fill="#8f001f" opacity="0.25" filter="url(#sssurface-blur)"></ellipse>
+            <circle r="150" cx="400" cy="400" fill="hsl(351, 100%, 67%)"></circle>
+            <circle r="150" cx="400" cy="400" fill="url(#sssurface-grad-dark)"></circle>
+            <circle r="150" cx="400" cy="400" fill="url(#sssurface-grad-light)"></circle>
+          </g>
+        </svg>
+      </div>
+
+      <div class="info">
+        Mini Ball game made with Unity using C#, with realistic ball movements and collisions.<br>
+        ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 
+        ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 
+      </div>
+    </div>
+  </div>
+  
+
+	<div class="carousel-item activei">
+		<div class="carousel-box">
+			<div class="title">Source Code</div>
+      <div class="img">
+        <img src="/T__3_-removebg-preview.png" alt="Source Code" />
+      </div>
+        <div class="info">
+        Access the source code for this website, made with HTML, CSS, React and JS.<br> 
+        ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 
+        ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 
+        </div>
+		</div>
+	</div>
+
+	<div class="carousel-item" id = "item3">
+		<div class="carousel-box">
+			<div class="title">Plato's Apology</div>
+      <div class="img">
+        <img src="/T__4_-removebg-preview.png" alt="Source Code" />
+      </div>
+      <div class="info">A 10 minute read where I argue that Socrates was right to uphold his legal obligation to justice to remain in line with his virtues even if it required the ultimate sacrifice of his life.</div>
+		</div>
+	</div>
+
+	<div class="carousel-item">
+		<div class="carousel-box">
+			<div class="title">Nicomachean Ethics</div>
+      <div class="img">
+        <img src="/T__5_-removebg-preview.png" alt="Source Code" />
+      </div>
+      <div class="info">A 10 minute read where I assert that Aristotle's function argument is logically sound as it provides a generic best good for every human relative to their activities and choices in life.</div>
+		</div>
+	</div>
+</div>
+
+<div class="layout">
+	<div class="box">I need a CO-OP<br />Please<br />Help</div>
+</div>

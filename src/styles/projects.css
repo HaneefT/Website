@@ -1,0 +1,276 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.carousel {
+    position: relative;
+    z-index: 40;
+    top:0%;
+    width: 100%;
+
+    height: 100vh;
+    overflow: hidden;
+    cursor: grab;
+    user-select: none;
+    pointer-events: none;
+  }
+  .carousel-header {
+    position: relative;
+    top: 17%; /* Adjust the top spacing as needed */
+    left: 73.45%; /* Adjust the left spacing as needed */
+    z-index: 45;
+    color: black;
+    font-family: jetbrains mono;
+    font-size: 3.9vw;
+    font-weight: 600;
+    opacity: 1;
+    transition: opacity 0.5s ease,top 0.5s ease, font-size 0.5s ease;
+    pointer-events: all;
+  }
+  .carousel-header2 {
+    position: relative;
+    top:17%; /* Adjust the top spacing as needed */
+    left: 79.45%; /* Adjust the left spacing as needed */
+    z-index: 45;
+    color: black;
+    font-family: jetbrains mono;
+    font-size: 3.9vw;
+    font-weight: 600;
+    opacity: 0.5; 
+    transition: opacity 0.5s ease, top 0.5s ease , font-size 0.5s ease;
+    pointer-events: all;
+  }
+
+
+
+
+  .carousel:active {
+    cursor: grabbing;
+    }
+  .carousel-item {
+    --items: 4;
+    --width: clamp(10vw, 30vw, 40vw);
+    --height: clamp(10vh, 40vw, 80vh);
+    --x: calc(var(--active) * 400%);
+    --y: calc(var(--active) * 100%);
+    --rot: calc(var(--active) * 120deg);
+    --opacity: calc(var(--zIndex) / var(--items) * 3 - 2);
+    overflow: hidden;
+    position: absolute;
+    z-index: var(--zIndex);
+    width: var(--width);
+    height: var(--height);
+    margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
+    border-radius: 10px;
+    top: 58%;
+    left: 50%;
+    user-select: none;
+    transform-origin: 0% 100%;
+    box-shadow: 0 10px 50px 10px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.85);
+    pointer-events: all;
+    transform: translate(var(--x), var(--y)) rotate(var(--rot));
+    transition: transform 0.8s cubic-bezier(0, 0.02, 0, 1);
+  }
+  
+  .carousel-item .carousel-box {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s cubic-bezier(0, 0.02, 0, 1);
+    opacity: var(--opacity);
+    align-items: center;
+    text-align: center;
+  }
+  
+  .carousel-item .carousel-box:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5));
+  }
+
+  .carousel-item .links{
+    position: relative;
+    /* transform: translateY(%); */
+    padding: auto;
+    visibility: hidden;
+    opacity: 0;
+    align-items: center;
+    white-space: normal;
+    transition: transform 0.5s ease,opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  .carousel-item.activei .links {
+    opacity: 1;
+    transform: translateY(-80%);
+    visibility: visible;
+    transition: transform 0.7s ease, opacity 0.7s ease, visibility 0.7s ease;
+  }
+
+  .carousel-item .title {
+    position: flex;
+    z-index: 1;
+    color: #fff;
+    bottom: -80%; 
+    align-items: center;
+    font-family: 'jetbrains mono';
+    letter-spacing: -0.09vw;
+    transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1), font-size 0.5s ease;
+    font-size: clamp(1vw, 2.3vw, 2.3vw);
+    white-space: nowrap;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(20%);
+    transition: bottom 0.7s ease;
+    overflow: hidden;
+    line-height: 1.2;
+    width:auto;
+  }
+  
+
+    /* Add this style for the active title */
+.carousel-item.activei .title {
+  bottom: -58%;
+  transition: bottom 0.5s ease, font-size 0.5s ease;
+}
+  
+
+
+  .carousel-item .info {
+    position: flex;
+    left: 0%;
+    width: 100%;
+    /* transform: translateY(%); */
+    color: white;
+    padding: 10px;
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+    white-space: normal;
+    transition: transform 0.5s ease,opacity 0.5s ease, visibility 0.5s ease;
+  }
+  .carousel-item.activei .info {
+    opacity: 1;
+    transform: translateY(-110%);
+    visibility: visible;
+    transition: transform 0.7s ease, opacity 0.7s ease, visibility 0.7s ease;
+  }
+
+
+
+/* Add this style for the active info */
+
+
+/* Add this style for the active image */
+.carousel-item.activei .img svg{
+  transform: scale(1.2) translateY(-20%); /* Adjust the scale value as needed */
+  transition: transform 0.7s ease;
+}
+
+.carousel-item.activei img{
+  transform: scale(1.2) translateY(-18%); /* Adjust the scale value as needed */
+  transition: transform 0.7s ease;
+}
+
+.carousel-item .img svg{
+  transform: scale(1) translateY(-15%); /* Adjust the scale value as needed */
+  transition: transform 0.7s ease;
+}
+  
+  
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    transform: scale(1) translateY(-15%);
+    transition: transform 0.7s ease;
+  }
+
+  .carousel-item .img .image{
+    width: 80%;
+    height: 100%;
+  }
+  .cursor {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    --size: 40px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: calc(var(--size) * -0.5) 0 0 calc(var(--size) * -0.5);
+    transition: transform 0.85s cubic-bezier(0, 0.02, 0, 1);
+    display: none;
+    pointer-events: none;
+  }
+  
+  /* Add these styles to your existing CSS */
+
+  
+
+  @media (pointer: fine) {
+    .cursor {
+      display: block;
+    }
+  }
+  
+  .cursor2 {
+    --size: 2px;
+    transition-duration: 0.7s;
+  }
+  
+
+    .layout {
+    position: absolute;
+    z-index: 0;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  .layout:before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 90px;
+    width: 10px;
+    height: 100%;
+    border: 1px solid #fff;
+    border-top: none;
+    border-bottom: none;
+    opacity: 0.15;
+  }
+  
+  .layout .box {
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+    color: #fff;
+    transform-origin: 0% 10%;
+    transform: rotate(-90deg);
+    font-size: 9px;
+    line-height: 1.4;
+    text-transform: uppercase;
+    opacity: 0.4;
+  }
+
+  @media (max-width: 910px){
+    .layout .box {
+      display: none;
+    }
+    .layout:before {
+      display: none;
+    }
+  }
