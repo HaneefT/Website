@@ -40,16 +40,13 @@
     pointer-events: all;
   }
 
-
-
-
   .carousel:active {
     cursor: grabbing;
     }
   .carousel-item {
     --items: 4;
-    --width: clamp(10vw, 30vw, 40vw);
-    --height: clamp(10vh, 40vw, 80vh);
+    --width: clamp(20vw, 30vw, 40vw);
+    --height: clamp(20vh, 40vw, 80vh);
     --x: calc(var(--active) * 400%);
     --y: calc(var(--active) * 100%);
     --rot: calc(var(--active) * 120deg);
@@ -63,6 +60,7 @@
     border-radius: 10px;
     top: 58%;
     left: 50%;
+    align-items: center;
     user-select: none;
     transform-origin: 0% 100%;
     box-shadow: 0 10px 50px 10px rgba(0, 0, 0, 0.5);
@@ -88,6 +86,8 @@
   .carousel-item .carousel-box:before {
     content: '';
     position: absolute;
+    align-items: center;
+    text-align: center;
     z-index: 1;
     top: 0;
     left: 0;
@@ -95,30 +95,13 @@
     height: 100%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5));
   }
-
-  .carousel-item .links{
-    position: relative;
-    /* transform: translateY(%); */
-    padding: auto;
-    visibility: hidden;
-    opacity: 0;
-    align-items: center;
-    white-space: normal;
-    transition: transform 0.5s ease,opacity 0.5s ease, visibility 0.5s ease;
+  .carousel-item.activei {
+    cursor: auto;
   }
-
-  .carousel-item.activei .links {
-    opacity: 1;
-    transform: translateY(-80%);
-    visibility: visible;
-    transition: transform 0.7s ease, opacity 0.7s ease, visibility 0.7s ease;
-  }
-
   .carousel-item .title {
     position: flex;
     z-index: 1;
-    color: #fff;
-    bottom: -80%; 
+    color: #fff; 
     align-items: center;
     font-family: 'jetbrains mono';
     letter-spacing: -0.09vw;
@@ -126,8 +109,8 @@
     font-size: clamp(1vw, 2.3vw, 2.3vw);
     white-space: nowrap;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-    transform: translateY(20%);
-    transition: bottom 0.7s ease;
+    transform: translateY(1060%);
+    transition: transform 0.7s ease;
     overflow: hidden;
     line-height: 1.2;
     width:auto;
@@ -136,10 +119,11 @@
 
     /* Add this style for the active title */
 .carousel-item.activei .title {
-  bottom: -58%;
-  transition: bottom 0.5s ease, font-size 0.5s ease;
+  transform: translateY(760%);;
+  transition: transform 0.5s ease, font-size 0.5s ease;
 }
-  
+
+
 
 
   .carousel-item .info {
@@ -148,7 +132,8 @@
     width: 100%;
     /* transform: translateY(%); */
     color: white;
-    padding: 10px;
+    font-size: 1.2vw;
+    padding: 3%;
     visibility: hidden;
     opacity: 0;
     text-align: center;
@@ -157,14 +142,42 @@
   }
   .carousel-item.activei .info {
     opacity: 1;
-    transform: translateY(-110%);
+    transform: translateY(-100%);
+    pointer-events: auto;
     visibility: visible;
     transition: transform 0.7s ease, opacity 0.7s ease, visibility 0.7s ease;
   }
 
+  .carousel-links {
+    position: absolute;
+    bottom: -40px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    gap: 10px; /* Adjust spacing between links */
+    z-index: 50; /* Make sure links are above other elements */
+    transition: bottom 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+  }
+  
+  .carousel-links a svg{
+    width: 2.2vw;
+    height: auto;
+  }
 
+  .carousel-item.activei .carousel-links{
+    bottom: 20px;
+    visibility: visible;
+    opacity: 1;
+    transition: bottom 0.5s ease, opacity 0.7s ease, visibility ease 0.7s;
+  }
+  
+  /* Add hover effect for links */
+  .carousel-links a:hover {
+    transform: scale(1.1);
+  }
 
-/* Add this style for the active info */
 
 
 /* Add this style for the active image */
@@ -211,21 +224,6 @@
     transition: transform 0.85s cubic-bezier(0, 0.02, 0, 1);
     display: none;
     pointer-events: none;
-  }
-  
-  /* Add these styles to your existing CSS */
-
-  
-
-  @media (pointer: fine) {
-    .cursor {
-      display: block;
-    }
-  }
-  
-  .cursor2 {
-    --size: 2px;
-    transition-duration: 0.7s;
   }
   
 
