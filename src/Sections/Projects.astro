@@ -83,10 +83,20 @@ $carouselItems.forEach((item, i) => {
 const $header1 = document.querySelector('.carousel-header');
 const $header2 = document.querySelector('.carousel-header2');
 
+// Function to remove "activei" class from all items
+function removeActiveClassFromItems() {
+  $items.forEach(item => {
+    item.classList.remove('activei');
+  });
+}
+
 // Handle click on header1 to show item1
 $header1!.addEventListener('click', () => {
   const item1 = document.querySelector('#item1') as HTMLElement;
   const itemIndex = Array.from($items).indexOf(item1);
+
+  removeActiveClassFromItems(); // Remove class from all items
+  item1.classList.add('activei');
   progress = (itemIndex / ($items.length - 1)) * 100;
   animate();
 });
@@ -95,9 +105,13 @@ $header1!.addEventListener('click', () => {
 $header2!.addEventListener('click', () => {
   const item3 = document.querySelector('#item3') as HTMLElement;
   const itemIndex = Array.from($items).indexOf(item3);
+
+  removeActiveClassFromItems(); // Remove class from all items
+  item3.classList.add('activei');
   progress = (itemIndex / ($items.length - 1)) * 100;
   animate();
 });
+
 
 
 
