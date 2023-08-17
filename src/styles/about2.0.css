@@ -142,13 +142,14 @@
 
 .terminal-window {
   text-align: left;
-  top: 31%;
+  transform: translateY(60%);
+  top:31%;
   left: 1%;
   width: 70%;
   height: 40%;
   border-radius: 10px 10px 10px 10px;
   margin:auto;
-  position: relative;
+  position: flex;
 }
 
 .terminal-window header {
@@ -175,7 +176,7 @@
   border-radius: 5px;
   cursor: pointer;
   left: -1%;
-  position: relative; /* Adjust the margin as needed */
+  position: flex; /* Adjust the margin as needed */
 }
 
 .terminal-window header .button.green {
@@ -236,7 +237,7 @@
     width: 80%; /* Adjust to full width */
     height: 43%; /* Adjust to fit content */
     border-radius: 0; /* Remove border radius */
-    position: relative;
+    position: flex;
     top:43%;
   }
 
