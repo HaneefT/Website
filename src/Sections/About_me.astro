@@ -44,7 +44,8 @@ import '../styles/about2.0.css';
         </header>
         <section class="terminal">
           <div class="history"></div>
-          <span id="npmCommand">$&nbsp;</span><span class="prompt"></span>
+          <span style= "color:grey" class="prompt"></span>
+          <span id="npmCommand">$&nbsp;</span>
           <span class="typed-cursor"></span>
         </section>
       </div>
@@ -72,17 +73,19 @@ import '../styles/about2.0.css';
           const data = [
             {
               action: 'type',
-              strings: ["npm build dev"],
+              strings: ["--psst! Click the run button above","npm build dev"],
               output: '',
-              delay: 30,
-            },
+              delay:15,
+            }
           ];
       
           async function runScripts(data: any[], pos:number) {
             const script = data[pos];
             switch (script.action) {
               case 'type':
-                await type(script.strings[0], npmCommand as HTMLElement, script.delay);
+                await type(script.strings[0], prompt as HTMLElement, script.delay);
+                prompt!.innerHTML += '<br>';
+                await type(script.strings[1], npmCommand as HTMLElement, script.delay);
                 break;
             }
             pos++;
@@ -111,6 +114,7 @@ import '../styles/about2.0.css';
           }
       
           runScripts(data, 0); // Start typing the npm build dev command
+          // runScripts(data, 1); // Start typing the npm run dev command
         });
       </script>
       
