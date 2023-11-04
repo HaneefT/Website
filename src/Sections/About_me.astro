@@ -97,6 +97,7 @@ import '../styles/about2.0.css';
           runButton!.addEventListener('click', async function() {
             runButton!.style.display = 'none'; // Hide the button after clicking
             npmCommand!.style.display = 'none'; // Hide the npm command
+            prompt!.innerHTML = ''; // Clear the prompt
             const aboutMeText = [
               "Hello! I'm Haneef, an international student entering my 3rd year of Computer Science at McMaster University. ",
               "Proficient in Python, Java, and C++, I am currently learning JavaScript and React to expand my skillset. "
