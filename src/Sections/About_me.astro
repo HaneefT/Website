@@ -1,129 +1,104 @@
 ---
-import '../styles/about2.0.css';
-
+import "../styles/about2.0.css";
 ---
 
-    <div class="content">
-        <div class="content__container">
-          <ul class="content__container__list">
-            <li class="content__container__list__item">
-                Hello World!</li>
-            <li class="content__container__list__item">about me.</li>
-          </ul>
-        </div>
+<div class="content">
+  <div class="content__container">
+    <ul class="content__container__list">
+      <li class="content__container__list__item">Hello World!</li>
+      <li class="content__container__list__item">about me.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <div class="parent card1">
+    <h1 class="columntitle">EDUCATION.</h1>
+    <div class="card">
+      <div class="content-box">
+        <h1 class="card-title">McMaster University</h1>
+        <h3 class="card-subtitle">
+          <span>Bachelor of Computer Science</span><span id="education-date"
+          ></span>
+        </h3>
+        <p class="card-content">
+          <span class="mobile">Currently on my final coop term. Heading into my final year this fall.</span><span class="nm">Heading into my final year this fall. I usually pair my core computer science courses with creative electives to keep things interesting. I am also an executive member of the only photography club at McMaster.</span>
+        </p>
       </div>
-
-      
-      <!-- <div class="help">dffd</div> -->
-
-
-      <div class="terminal-window">
-        <header>
-          
-          <style>
-            .run-button {
-              background-color: transparent;
-              border: none;
-              cursor: pointer;
-              padding: 0;
-            }
-            
-            .run-button svg {
-              width: 18px;
-              height: 18px;
-              fill: white;
-              transition: transform 0.2s ease-in-out;
-            }
-            
-            .run-button:hover svg {
-              transform: scale(1.4);
-            }
-          </style>
-          <button id="runButton" class="run-button"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16"><g fill="white"><path d="M2.78 2L2 2.41v12l.78.42l9-6V8l-9-6zM3 13.48V3.35l7.6 5.07L3 13.48z"/><path fill-rule="evenodd" d="m6 14.683l8.78-5.853V8L6 2.147V3.35l7.6 5.07L6 13.48v1.203z" clip-rule="evenodd"/></g></svg>
-          <button>
-        </header>
-        <section class="terminal">
-          <div class="history"></div>
-          <span style= "color:grey" class="prompt"></span>
-          <span id="npmCommand">$&nbsp;</span>
-          <span class="typed-cursor"></span>
-        </section>
+      <div class="icon-box">
+        <span class="icon"
+          ><img
+            src="/mcmaster_university_logo.jpg"
+            alt="Source Code"
+            style={{ borderRadius: "7px" }}
+          /></span
+        >
       </div>
-      <!-- data -->
-      <div class="terminal-data mimik-run-output">
+    </div>
+  </div>
+
+  <div class="parent card2">
+    <h1 class="columntitle">EXPERIENCE.</h1>
+    <div class="card">
+      <div class="content-box">
+        <h1 class="card-title">KORE Solutions</h1>
+        <h3 class="card-subtitle">
+          <span>Software Developer Intern</span><span id="experience-date"
+          ></span>
+        </h3>
+        <p class="card-content">
+          <span class="mobile"> Created and optimized Cypress tests, refactored code, and implemented a FastAPI backend for seamless integration with Flutter and MongoDB.</span>
+          <span class="nm">Developed Cypress tests, optimizing performance and reliability for
+          TRAX. Refactored test builders to reduce duplication. Designed a
+          FastAPI backend with 15+ endpoints, integrating seamlessly with a
+          Flutter frontend and MongoDB.</span>
+        </p>
       </div>
-
-      <div class="terminal-data mimik-run-output">
+      <div class="icon-box">
+        <span class="icon"
+          ><img
+            src="/KORE.jpg"
+            alt="Source Code"
+            style={{ borderRadius: "7px" }}
+          /></span
+        >
       </div>
-      
-      <script>
-        async function type(text:string, element: HTMLElement, delay:number) {
-          const sleep = (ms:number) => new Promise((resolve) => setTimeout(resolve, ms));
-          for (let char of text) {
-            element.textContent += char;
-            await sleep(delay);
-          }
-        }
-      
-        document.addEventListener('DOMContentLoaded', async function() {
-          const prompt = document.querySelector('.prompt');
-          const npmCommand = document.getElementById('npmCommand');
-          const runButton = document.getElementById('runButton');
-      
-          const data = [
-            {
-              action: 'type',
-              strings: ["--psst! Click the run button above","npm build dev"],
-              output: '',
-              delay:15,
-            }
-          ];
-      
-          async function runScripts(data: any[], pos:number) {
-            const script = data[pos];
-            switch (script.action) {
-              case 'type':
-                await type(script.strings[0], prompt as HTMLElement, script.delay);
-                prompt!.innerHTML += '<br>';
-                await type(script.strings[1], npmCommand as HTMLElement, script.delay);
-                break;
-            }
-            pos++;
-            if (pos < data.length) {
-              setTimeout(() => runScripts(data, pos), script.delay || 1000);
-            }
-          }
-      
-          runButton!.addEventListener('click', async function() {
-            runButton!.style.display = 'none'; // Hide the button after clicking
-            npmCommand!.style.display = 'none'; // Hide the npm command
-            prompt!.innerHTML = ''; // Clear the prompt
-            const aboutMeText = [
-              "Hello! I'm Haneef, an international student entering my 3rd year of Computer Science at McMaster University. ",
-              "Proficient in Python, Java, and C++, I am currently learning JavaScript and React to expand my skillset. "
-            ];
-            await typeAboutMe(aboutMeText, prompt as HTMLElement, 30);
-          });
-          
-          async function typeAboutMe(texts:string[], element: HTMLElement, delay:number) {
-            for (let text of texts) {
-              await type(text, element, delay);
-              if (text !== texts[texts.length - 1]) {
-                element.innerHTML += '<br>';
-              }
-            }
-          }
-      
-          runScripts(data, 0); // Start typing the npm build dev command
-          // runScripts(data, 1); // Start typing the npm run dev command
-        });
-      </script>
-      
+    </div>
+  </div>
+</div>
 
-      
-      
-        
+<script>
+  const startDate = new Date("2024-05-05");
+  const startEducationDate = new Date("2021-09-08");
+  const endEducationDate = new Date("2026-04-03");
+  const endDate = new Date("2025-04-03");
+  const currentDate = new Date();
 
-      
-      
-      
+  const formatDate = (date) => {
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+    });
+  };
+
+  const experienceDateElement = document.getElementById("experience-date");
+  const educationDateElement = document.getElementById("education-date");
+
+  if (currentDate < endDate) {
+    experienceDateElement.textContent = `${formatDate(startDate)} - Present`;
+  } else {
+    experienceDateElement.textContent = `${formatDate(
+      startDate
+    )} - ${formatDate(endDate)}`;
+  }
+
+  if (currentDate < endEducationDate) {
+    educationDateElement.textContent = `${formatDate(
+      startEducationDate
+    )} - Present`;
+  } else {
+    educationDateElement.textContent = `${formatDate(
+      startEducationDate
+    )} - ${formatDate(endEducationDate)}`;
+  }
+</script>

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 const font = {fontFamily:'JetBrains Mono', fontSize:'1.75rem',fontWeight:'600',letterSpacing:'0.1em',color:'white'}
 
                 const TextWithEffect = () => {
-                    const text = "Haneef Taher";
+                    const text = "Haneef";
                     const [typedText, setTypedText] = useState('');
                     const [currentIndex, setCurrentIndex] = useState(0);
                     const [showCursor, setShowCursor] = useState(true);
