@@ -283,7 +283,7 @@
   display: none;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 910px) {
   .container {
     height: 30vh;
     display: flex;
